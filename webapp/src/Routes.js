@@ -4,6 +4,9 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import { isFeatureEnabled } from 'lib/featureUtils'
 import { locations } from 'locations'
 
+import Intercom from 'components/Intercom'
+import Modal from 'components/Modal'
+import Toast from 'components/Toast'
 import Wallet from 'components/Wallet'
 import Page from 'components/Page'
 
@@ -26,15 +29,9 @@ import TransferManaPage from 'components/TransferManaPage'
 import BuyManaPage from 'components/BuyManaPage'
 import BuyParcelByMortgagePage from 'components/BuyParcelByMortgagePage'
 import PayMortgagePage from 'components/PayMortgagePage'
-
 import ColorKeyPage from 'components/ColorKeyPage'
 import PrivacyPage from 'components/PrivacyPage'
 import TermsPage from 'components/TermsPage'
-
-import Intercom from 'components/Intercom'
-
-import Modal from 'components/Modal'
-import Toast from 'components/Toast'
 
 export default class Routes extends React.Component {
   renderRoutes() {
@@ -53,6 +50,9 @@ export default class Routes extends React.Component {
             path={locations.createEstate}
             component={CreateEstatePage}
           />
+        ) /* Estate Feature */}
+        {isFeatureEnabled('ESTATES') && (
+          <Route exact path={locations.estate} component={EstateDetailPage} />
         ) /* Estate Feature */}
         <Route exact path={locations.manage} component={ManageParcelPage} />
         <Route exact path={locations.buy} component={BuyParcelPage} />

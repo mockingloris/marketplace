@@ -1,3 +1,5 @@
+import { isParcel } from 'shared/parcel'
+
 export const locations = {
   root: '/',
 
@@ -37,6 +39,14 @@ export const locations = {
 
   parcel: '/:x/:y/detail',
   parcelDetail: (x, y) => `/${x}/${y}/detail`,
+
+  assetDetail: asset => {
+    if (isParcel(asset)) {
+      const { x, y } = asset
+      return parcelDetail(x, y)
+    }
+    return estateDetail
+  }
 
   settings: '/settings',
   activity: '/activity',
