@@ -1,0 +1,30 @@
+.ParcelOwner.is-address,
+.ParcelOwner.is-owner {
+  display: inline-flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-end;
+  color: var(--gray);
+}
+
+.ParcelOwner.is-owner .button + .button {
+  margin-left: 30px;
+}
+
+.ParcelOwner.is-district {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--gray);
+  max-width: 100%;
+}
+
+.ParcelOwner.is-district .district-name {
+  color: var(--gray);
+}
+
+.ParcelOwner .AddressBlock {
+  height: 24px;
+  margin-left: 10px;
+}
