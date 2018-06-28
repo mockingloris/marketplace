@@ -40,13 +40,10 @@ export const locations = {
   parcel: '/:x/:y/detail',
   parcelDetail: (x, y) => `/${x}/${y}/detail`,
 
-  assetDetail: asset => {
-    if (isParcel(asset)) {
-      const { x, y } = asset
-      return parcelDetail(x, y)
-    }
-    return estateDetail
-  }
+  assetDetail: asset =>
+    isParcel(asset)
+      ? this.parcelDetail(asset.x, asset.y)
+      : this.estateDetail(asset.id),
 
   settings: '/settings',
   activity: '/activity',
