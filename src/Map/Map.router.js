@@ -235,7 +235,7 @@ export class MapRouter {
     }
     let coords
     try {
-      if (coordinates.isValid(coords)) {
+      if (coordinates.isValid(param)) {
         throw new Error('Invalid coords')
       }
 
